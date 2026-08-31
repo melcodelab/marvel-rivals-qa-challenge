@@ -29,4 +29,4 @@ Fechar Navegador
 
 Capturar Screenshot Em Caso De Falha
     [Documentation]    Keyword de teardown de teste — tira screenshot somente se o teste falhou.
-    Run Keyword If Test Failed    Run Keyword And Ignore Error    Take Screenshot    filename=${TEST NAME}_falha
+    Run Keyword If Test Failed    Run Keyword And Ignore Error    Take Screenshot    filename=failure_{index}
