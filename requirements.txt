@@ -1,0 +1,4 @@
+robotframework>=6.1
+robotframework-requests>=0.9
+robotframework-browser>=18
+python-dotenv>=1.0

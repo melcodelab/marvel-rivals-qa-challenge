@@ -1,0 +1,9 @@
+venv
+.pytest_cache
+__pycache__
+.env
+results/
+log.html
+report.html
+output.xml
+playwright-log.txt
