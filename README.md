@@ -22,7 +22,7 @@ Abaixo estão os links para as documentações detalhadas do planejamento, anál
 4. 📊 **[Matriz de Cenários de Testes](docs/4.%20[%20Documenta%C3%A7%C3%A3o%20]%20Matriz%20de%20Cen%C3%A1rios.md)**
    * Tabela de rastreabilidade contendo os 28 cenários identificados nas camadas de API e E2E, com priorizações e justificativas de automação.
 
-5. 🐛 **[Registro de Bugs e Oportunidades](docs/5.%20[%20Documenta%C3%A7%C3%A3o%20]%20Registro%20de%20Bugs.md)**
+5. 🐛 **[Registro de Bugs e Inconsistências](docs/5.%20[%20Documenta%C3%A7%C3%A3o%20]%20Registro%20de%20Bugs.md)**
    * Documentação de inconsistências de design e comportamento identificadas no backend e no frontend durante os testes manuais.
 
 6. 📅 **[Implementação de Schedules no GitHub Actions](docs/6.%20[%20Discovery%20]%20Implementa%C3%A7%C3%A3o%20de%20Schedules%20-%20Github%20Actions.md)**
@@ -40,7 +40,7 @@ tests/
 │   ├── heroes/                     # Casos de teste de negócio
 │   └── resources/                  # Keywords e variáveis reutilizáveis da API
 │
-└── e2e/                            # Suíte de Frontend (Web)
+└── web/                            # Suíte de Frontend
     ├── heroes/                     # Casos de teste de interface
     └── resources/                  # Seletores e Keywords customizadas de UI
 ```
@@ -86,5 +86,5 @@ tests/
      ```
    * Executar apenas testes de UI/E2E:
      ```bash
-     robot -d results tests/e2e/
+     robot -d results tests/web/
      ```
