@@ -1,4 +1,4 @@
-name: Web E2E Tests
+name: Web Tests
 
 on:
   schedule:
