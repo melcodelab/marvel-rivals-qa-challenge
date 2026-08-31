@@ -1,4 +1,4 @@
-# 🧪 Marvel Rivals Hub — Prova Técnica (QA Pleno)
+# 🧪 Marvel - Prova Técnica (QA Pleno)
 
 Bem-vindo(a) ao repositório de automação de testes do **Marvel**. Este projeto foi desenvolvido para demonstrar práticas modernas de engenharia de qualidade aplicadas tanto no teste de APIs baseadas em GraphQL quanto em validações funcionais de frontend responsivo.
 
