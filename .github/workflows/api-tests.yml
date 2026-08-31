@@ -1,0 +1,51 @@
+name: API Tests
+
+on:
+  schedule:
+    # Executa todos os dias às 04:00 UTC (01:00 BRT)
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+    # Permite execução manual pelo painel do GitHub
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  api-tests:
+    name: Executar Testes de API
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Clonar Repositório
+        uses: actions/checkout@v4
+
+      - name: 🐍 Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: 📦 Instalar Dependências do Python
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🧪 Executar Testes Automatizados (API)
+        env:
+          MARVEL_API_TOKEN: ${{ secrets.MARVEL_API_TOKEN }}
+        run: |
+          robot -d results tests/api/
+
+      - name: 📈 Gerar Relatório de Saúde dos Testes (Job Summary)
+        if: always()
+        run: |
+          python utils/generate_summary.py
+
+      - name: 📊 Publicar Relatório de Testes (Artefato)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-test-results
+          path: results/
+          if-no-files-found: ignore
