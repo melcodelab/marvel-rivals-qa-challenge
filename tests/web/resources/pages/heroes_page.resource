@@ -18,8 +18,8 @@ ${HEROES_CONTAINER}       css=#wrap.heroesDetails
 ${MORE_HEROES_BTN}        css=.more-btn
 
 # --- Painel de Seleção de Heróis ---
-${HEROES_PANEL}           css=.hero-select
-${HERO_CARD}              css=.select-list .select-item
+${HEROES_PANEL}           css=.select-box
+${HERO_CARD}              css=.select-list li
 
 # --- Informações do Herói Selecionado (tela principal) ---
 ${HERO_NAME_DISPLAY}      css=.hero-name
@@ -40,7 +40,7 @@ Acessar Pagina De Herois
     [Documentation]    Navega para a URL da página de heróis e aguarda o container principal renderizar.
     ...                O container #wrap.heroesDetails é injetado pelo JS — aguardamos sua presença
     ...                para garantir que o JavaScript já executou e a página está interativa.
-    New Page    ${HEROES_URL}
+    New Page    ${HEROES_URL}    wait_until=domcontentloaded
     Wait For Elements State    ${HEROES_CONTAINER}    visible    timeout=${TIMEOUT}
 
 Validar Que A Lista De Herois Esta Visivel
@@ -58,19 +58,17 @@ Abrir Painel More Heroes
     Wait For Elements State    ${HEROES_PANEL}    visible    timeout=${TIMEOUT}
 
 Selecionar Heroi Do Painel
-    [Arguments]    ${hero_name}
-    [Documentation]    Seleciona um herói pelo nome no painel de seleção More Heroes.
+    [Arguments]    ${hero_index}
+    [Documentation]    Seleciona um herói pelo índice (posição data-index) no painel de seleção More Heroes.
     ...                Aguarda que o card do herói esteja visível e clicável antes de interagir.
-    ${selector}=    Set Variable    css=.select-list .select-item[data-name="${hero_name}"]
+    ${selector}=    Set Variable    css=.select-list li[data-index="${hero_index}"]
     Wait For Elements State    ${selector}    visible    timeout=${TIMEOUT}
     Click    ${selector}
 
 Validar Que O Heroi Foi Atualizado
     [Arguments]    ${expected_hero_name}
     [Documentation]    Verifica que o nome do herói exibido na tela principal corresponde ao herói selecionado.
-    Wait For Elements State    ${HERO_NAME_DISPLAY}    visible    timeout=${TIMEOUT}
-    ${displayed_name}=    Get Text    ${HERO_NAME_DISPLAY}
-    Should Contain    ${displayed_name}    ${expected_hero_name}    ignore_case=True
+    Get Text    ${HERO_NAME_DISPLAY}    contains    ${expected_hero_name}
 
 # ---- Modal de Login ----
 

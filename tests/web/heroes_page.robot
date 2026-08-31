@@ -13,8 +13,6 @@ Suite Teardown   Fechar Navegador
 Test Setup       Recarregar Pagina De Herois
 Test Teardown    Capturar Screenshot Em Caso De Falha
 
-*** Variables ***
-${HERO_REFERENCIA}    ADAM WARLOCK
 
 *** Keywords ***
 Iniciar Suite De Herois
@@ -38,11 +36,11 @@ WEB-03: Validar Exibicao Da Lista De Herois Do Jogo
 WEB-04: Validar Abertura Do Painel More Heroes E Selecao De Heroi
     [Documentation]    Garante que o botão "MORE HEROES" abre o painel de seleção com o grid
     ...                de heróis e que clicar em um herói atualiza as informações exibidas na tela.
-    ...                Herói de referência: ${HERO_REFERENCIA}
+    ...                Herói selecionado: DAREDEVIL (index 9)
     [Tags]             web    heroes    high    web-04
     Abrir Painel More Heroes
-    Selecionar Heroi Do Painel    ${HERO_REFERENCIA}
-    Validar Que O Heroi Foi Atualizado    ${HERO_REFERENCIA}
+    Selecionar Heroi Do Painel    9
+    Validar Que O Heroi Foi Atualizado    MATT MURDOCK
 
 WEB-05: Validar Abertura E Fechamento Do Modal De Login
     [Documentation]    Fluxo de interação crítico do usuário. Valida que o modal de login abre

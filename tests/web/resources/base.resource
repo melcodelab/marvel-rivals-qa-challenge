@@ -7,7 +7,7 @@ Library          Browser
 ${HOME_URL}        https://www.marvelrivals.com/index.html
 ${HEROES_URL}      https://www.marvelrivals.com/heroes/index.html?heroId=0
 ${BROWSER}         chromium
-${HEADLESS}        False
+${HEADLESS}        Tru
 ${VIEWPORT_W}      1920
 ${VIEWPORT_H}      1080
 ${TIMEOUT}         30s
