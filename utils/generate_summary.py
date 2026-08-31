@@ -59,7 +59,7 @@ def generate_summary():
             # Additional metadata
             f.write("\n### 🔍 Detalhes Adicionais\n")
             f.write("- **Framework:** Robot Framework\n")
-            f.write("- **Camadas:** API (GraphQL) e E2E (Playwright)\n")
+            f.write("- **Camadas:** API (GraphQL) e WEB (Playwright)\n")
             f.write("- **Relatório Completo:** Baixe o arquivo `robot-framework-results` nos artefatos desta execução para abrir o `report.html` interativo.\n")
             
     except Exception as e:

@@ -38,7 +38,7 @@ jobs:
 
       - name: 🌐 Inicializar Browser Library (Playwright)
         run: |
-          rfbrowser clean-install
+          rfbrowser init
 
       - name: 🛠️ Instalar Dependências de Sistema do Playwright
         run: |
